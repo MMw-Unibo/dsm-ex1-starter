@@ -1,15 +1,55 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-<h:head></h:head>
-<h:body>
-    <h1>Welcome to Jakarta EE 8</h1>
-    <p>
-        Hello, <h:outputText value="#{newMember.name}"/>
-    </p>
-</h:body>
-</html>
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+        <div class="w3-row">
+            <div class="w3-col m4 l4">
+                <div class="w3-container">
+                    <h1>Welcome to Jakarta EE 8!</h1>
+                    <div>
+                        <p>You have successfully deployed a Jakarta EE Enterprise
+                            Application.</p>
+                    </div>
+                    <div class="w3-card-4">
+                        <div class="w3-container w3-blue">
+                            <h2>Member Registration</h2>
+                        </div>
+                        <h:form id="reg" class="w3-container w3-card-4" action="/action_page.php">
+                            <p>
+                                <h:outputLabel styleClass="w3-text-blue" for="name" value="Name:"/>
+                                <h:inputText styleClass="w3-input w3-border" id="name" value="#{newMember.name}"/>
+                                <h:message for="name" errorClass="invalid"/>
+                            </p>
+                            <p>
+                                <h:outputLabel styleClass="w3-text-blue" for="email" value="Email:"/>
+                                <h:inputText styleClass="w3-input w3-border" id="email" value="#{newMember.email}"/>
+                                <h:message for="email" errorClass="invalid"/>
+                            </p>
+                            <p>
+                                <h:outputLabel styleClass="w3-text-blue" for="phoneNumber" value="Phone #:"/>
+                                <h:inputText styleClass="w3-input w3-border" id="phoneNumber"
+                                             value="#{newMember.phoneNumber}"/>
+                                <h:message for="phoneNumber" errorClass="invalid"/>
+                            </p>
+                            <p>
+                                <h:commandButton id="register"
+                                                 action="#{memberController.register}"
+                                                 value="Register" styleClass="w3-btn w3-blue"/>
+                                <h:messages styleClass="messages"
+                                            errorClass="invalid" infoClass="valid"
+                                            warnClass="warning" globalOnly="true"/>
+                            </p>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col m8 l8">
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+
