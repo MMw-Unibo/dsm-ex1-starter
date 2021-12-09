@@ -1,14 +1,27 @@
 package it.unibo.mmw.distsys.models;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "members", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Member implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @NotNull
     private String name;
 
+    @NotNull
+    @NotEmpty
     private String email;
 
+    @NotNull
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     public Long getId() {
