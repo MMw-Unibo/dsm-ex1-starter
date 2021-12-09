@@ -48,6 +48,37 @@
                 </div>
             </div>
             <div class="w3-col m8 l8">
+                <div class="w3-col m8 l8">
+                    <div class="w3-container">
+                        <h1>Members</h1>
+                        <div>
+                            <p>The list of the members.</p>
+                        </div>
+                        <h:panelGroup rendered="#{empty members}">
+                            <em>No registered members.</em>
+                        </h:panelGroup>
+                        <p:dataTable var="_member" value="#{members}"
+                                     rendered="#{not empty members}"
+                                     styleClass="simpletablestyle">
+                            <p:column>
+                                <f:facet name="header">Id</f:facet>
+                                #{_member.id}
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">Name</f:facet>
+                                #{_member.name}
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">Email</f:facet>
+                                #{_member.email}
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">Phone #</f:facet>
+                                #{_member.phoneNumber}
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </div>
             </div>
         </div>
     </ui:define>
