@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>it.unibo.mmw.distsys</groupId>
-    <artifactId>ex1-starter</artifactId>
+    <artifactId>dms-ex1-starter</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <properties>
-        <project.finalName>ex1-starter</project.finalName>
+        <project.finalName>dms-ex1-starter</project.finalName>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <wildfly.server.bom.version>25.0.0.Final</wildfly.server.bom.version>
